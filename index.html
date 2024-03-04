@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="styles/popup.css" rel="stylesheet" type="text/css" />
+  <link href="styles/general.css" rel="stylesheet" type="text/css" />
+  <title>Home</title>
+</head>
+<body onload="popUp()">
+  <main class="contain-home">
+    <section class="h-section-left">
+      <div>
+        <h2 class="h-text-title">¡RESERVA YA!</h2>
+        <h3 class="h-text-subTitle">CARACAS - MIAMI - CARACAS</h3>
+        <h2 class="h-text-title">POR TAN SOLO</h2>
+        <h2 class="h-text-title">$499</h2>
+        <form>
+          <div class="h-contain-radio">
+            <div class="h-input-radio" id="one-way">
+              <input type="radio" id="one-way-input" value="one-way" name="type_of_flight" onchange="handleCheckHome(event.target)" />
+              <label for="one-way-input">SOLO IDA</label>
+            </div>
+            <div class="h-input-radio" id="round-trip">
+              <input type="radio" id="round-trip-input" value="round-trip" name="type_of_flight" onchange="handleCheckHome(event.target)" />
+              <label for="round-trip-input">IDA Y VUELTA</label>
+            </div>
+          </div>
+          <div class="h-form">
+            <div class="h-input-text">
+              <label for="origin">Origen *</label>
+              <div class="h-contain-select">
+                <select name="origin" class="w-100" >
+                  <option disabled selected>Seleccione origen</option>
+                  <option value="caracas">caracas</option>
+                  <option value="miami">Miami</option>
+                </select>
+                <label class="label-absolute">
+                  <img src="assets/Icon-arrow-down.png" alt="start-date" width="15px" height="15px" />
+                </label>
+              </div>
+            </div>
+            <div class="h-input-text">
+              <label for="destiny">Destino *</label>
+              <div class="h-contain-select">
+                <select name="origin" class="w-100" >
+                  <option disabled selected>Seleccione destino</option>
+                  <option value="caracas">Caracas</option>
+                  <option value="miami">Miami</option>
+                </select>
+                <label class="label-absolute">
+                  <img src="assets/Icon-arrow-down.png" alt="start-date" width="15px" height="15px" />
+                </label>
+              </div>
+            </div>
+            <div class="h-contain-dates">
+              <div class="h-input-text">
+                <label for="start-date">Fecha de partida *</label>
+                <div class="h-contain-input-date">
+                  <input type="date" id="start-date" name="start-date" class="h-input-date" />
+                  <!-- <label for="start-date">
+                    <img src="assets/icon-calendar.png" alt="start-date" width="15px" height="15px" />
+                  </label> -->
+                </div>
+              </div>
+              <div class="h-input-text" id="h-input-end-date">
+                <label for="end-date">Fecha de vuelta *</label>
+                <div class="h-contain-input-date">
+                  <input type="date" id="end-date" name="end-date" class="h-input-date" />
+                  <!-- <label for="end-date">
+                    <img src="assets/icon-calendar.png" alt="end-date" width="15px" height="15px" />
+                  </label> -->
+                </div>
+              </div>
+            </div>
+            <div class="h-input-text">
+              <label for="count">Cantidad de pasajeros *</label>
+              <input type="number" id="count" name="count" value="2" />
+            </div>
+          </div>
+          <button class="h-button-primary" onclick="popUp()">
+            <a href="#popup" style="text-decoration: none; color: white;">Buscar vuelos</a>
+          </button>
+        </form>
+      </div>
+    </section>
+    <section class="h-section-right">
+      <img src="assets/bg-primary.jpg" class="h-section-right-img" />
+    </section>
+
+    <!--? modals -->
+
+    <!--! modal de informacion de pasajeros -->
+    
+    <div class="contain-modal" id="form-family">
+      <div class="modal w-80">
+        <header class="m-header">
+          <div class="m-header-text">
+            <h2 class="m-header-title">Información de pasajeros</h2>
+            <h4 class="m-header-title">Completa los campos</h4>
+          </div>
+          <a  href="#" class="m-button-close"><img src="assets/icon-close.png" /></a>
+        </header>
+        <div class="m-contain-items">
+          <div class="m-item">
+            <div class="m-item-title">
+              <img src="assets/icon-contact.png" />
+              <h4>Adulto 1</h4>
+            </div>
+            <form class="m-form">
+              <div class="m-form-group">
+                <input class="m-form-input" name="name" placeholder="Nombres" type="text" />
+                <input class="m-form-input" name="lastname" placeholder="Apellidos" type="text" />
+                <input class="m-form-input" name="passport" placeholder="Pasaporte" type="number" />
+                <div class="m-form-input h-contain-select">
+                  <select id="select-country" name="country" class="m-form-input-select" >
+                    <option disabled selected>País de expedición</option>
+                    <option value="venezuela">Venezuela</option>
+                    <option value="venezuela">Colombia</option>
+                    <option value="venezuela">EEUU</option>
+                    <option value="venezuela">Mexico</option>
+                  </select>
+                  <label class="label-absolute">
+                    <img src="assets/Icon-arrow-down.png" alt="start-date" width="15px" height="15px" />
+                  </label>
+                </div>
+                <div class="m-form-input">
+                  <input
+                    class="m-form-input-date"
+                    type="text"
+                    onfocus="(this.type='date')"
+                    onblur="(this.value ? this.type='date' : this.type='text')"
+                    placeholder="Fecha de nacimiento"
+                  />
+                </div>
+                <div class="m-form-input h-contain-select">
+                  <select name="nationality" class="m-form-input-select" >
+                    <option disabled selected>Nacionalidad</option>
+                    <option value="venezuela">Venezolano</option>
+                    <option value="venezuela">Colombiano</option>
+                    <option value="venezuela">Estadounidense</option>
+                    <option value="venezuela">Mexicano</option>
+                  </select>
+                  <label class="label-absolute">
+                    <img src="assets/Icon-arrow-down.png" alt="start-date" width="15px" height="15px" />
+                  </label>
+                </div>
+              </div>
+              <div class="separator-horizontal"></div>
+              <div class="m-item-title">
+                <img src="assets/icon-infor.png" />
+                <h4>Información de contacto</h4>
+              </div>
+              <div class="m-form-group">
+                <input class="m-form-input" name="name" placeholder="Correo electrónico" type="text" />
+                <input class="m-form-input" name="name" placeholder="Teléfono" type="text" />
+                <div class="m-contain-button">
+                  <button class="h-button-primary">
+                    <span>Guardar</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="m-item">
+            <div class="m-item-title">
+              <img src="assets/icon-contact.png" />
+              <h4>Adulto 2</h4>
+            </div>
+            <form class="m-form">
+              <div class="m-form-group">
+                <input class="m-form-input" name="name" placeholder="Nombres" type="text" />
+                <input class="m-form-input" name="lastname" placeholder="Apellidos" type="text" />
+                <input class="m-form-input" name="passport" placeholder="Pasaporte" type="number" />
+                <div class="m-form-input h-contain-select">
+                  <select id="select-country" name="country" class="m-form-input-select" >
+                    <option disabled selected>País de expedición</option>
+                    <option value="venezuela">Venezuela</option>
+                    <option value="venezuela">Colombia</option>
+                    <option value="venezuela">EEUU</option>
+                    <option value="venezuela">Mexico</option>
+                  </select>
+                  <label class="label-absolute">
+                    <img src="assets/Icon-arrow-down.png" alt="start-date" width="15px" height="15px" />
+                  </label>
+                </div>
+                <div class="m-form-input">
+                  <input
+                    class="m-form-input-date"
+                    type="text"
+                    onfocus="(this.type='date')"
+                    onblur="(this.value ? this.type='date' : this.type='text')"
+                    placeholder="Fecha de nacimiento"
+                  />
+                </div>
+                <div class="m-form-input h-contain-select">
+                  <select name="nationality" class="m-form-input-select" >
+                    <option disabled selected>Nacionalidad</option>
+                    <option value="venezuela">Venezolano</option>
+                    <option value="venezuela">Colombiano</option>
+                    <option value="venezuela">Estadounidense</option>
+                    <option value="venezuela">Mexicano</option>
+                  </select>
+                  <label class="label-absolute">
+                    <img src="assets/Icon-arrow-down.png" alt="start-date" width="15px" height="15px" />
+                  </label>
+                </div>
+              </div>
+              <div class="separator-horizontal"></div>
+              <div class="m-item-title">
+                <img src="assets/icon-infor.png" />
+                <h4>Información de contacto</h4>
+              </div>
+              <div class="m-form-group">
+                <input class="m-form-input" name="name" placeholder="Correo electrónico" type="text" />
+                <input class="m-form-input" name="name" placeholder="Teléfono" type="text" />
+                <div class="m-contain-button">
+                  <button class="h-button-primary">
+                    <span>Guardar</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <!-- <button class="h-button-primary">
+            <span>Agregar adulto + 1</span>
+          </button> -->
+          <!--<div class="m-item">
+            <div class="m-item-title">
+              <img src="assets/icon-contact.png" />
+              <h4>Niño 1 <span class="m-item-title-msg">(2- 12 años)</span></h4>
+            </div>
+            <form class="m-form">
+              <div class="m-form-group">
+                <input class="m-form-input" name="name" placeholder="Nombres" type="text" />
+                <input class="m-form-input" name="lastname" placeholder="Apellidos" type="text" />
+                <input class="m-form-input" name="passport" placeholder="Pasaporte" type="number" />
+                <div class="m-form-input">
+                  <select name="country" class="m-form-input-select" >
+                    <option disabled selected>País de expedición</option>
+                    <option value="venezuela">Venezuela</option>
+                    <option value="venezuela">Colombia</option>
+                    <option value="venezuela">Estado Unido</option>
+                    <option value="venezuela">Mexico</option>
+                  </select>
+                  <label>
+                    <img src="assets/Icon-arrow-down.png" alt="start-date" width="15px" height="15px" />
+                  </label>
+                </div>
+                <div class="m-form-input">
+                  <input
+                    class="m-form-input-date"
+                    type="text"
+                    onfocus="(this.type='date')"
+                    onblur="(this.value ? this.type='date' : this.type='text')"
+                    placeholder="Fecha de nacimiento"
+                  />
+                  <label for="start-date">
+                    <img src="assets/icon-calendar.png" alt="start-date" width="15px" height="15px" />
+                  </label>
+                </div>
+                <div class="m-form-input">
+                  <select name="nationality" class="m-form-input-select" >
+                    <option disabled selected>Nacionalidad</option>
+                    <option value="venezuela">Venezuelano</option>
+                    <option value="venezuela">Colombiano</option>
+                    <option value="venezuela">Estadounidense</option>
+                    <option value="venezuela">Mexicono</option>
+                  </select>
+                  <label>
+                    <img src="assets/Icon-arrow-down.png" alt="start-date" width="15px" height="15px" />
+                  </label>
+                </div>
+              </div>
+              <div class="m-form-group">
+                <div></div>
+                <div></div>
+                <div class="m-contain-button">
+                  <button class="h-button-primary">
+                    <span>Guardar</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <button class="h-button-primary">
+            <span>Agregar niño + 1</span>
+          </button>
+          <div class="m-item">
+            <div class="m-item-title">
+              <img src="assets/icon-bebe.png" />
+              <h4>Infante 1 <span class="m-item-title-msg">(<2 años)</span></h4>
+            </div>
+            <form class="m-form">
+              <div class="m-form-group">
+                <input class="m-form-input" name="name" placeholder="Nombres" type="text" />
+                <input class="m-form-input" name="lastname" placeholder="Apellidos" type="text" />
+                <div class="m-form-input">
+                  <input
+                    class="m-form-input-date"
+                    type="text"
+                    onfocus="(this.type='date')"
+                    onblur="(this.value ? this.type='date' : this.type='text')"
+                    placeholder="Fecha de nacimiento"
+                  />
+                  <label for="start-date">
+                    <img src="assets/icon-calendar.png" alt="start-date" width="15px" height="15px" />
+                  </label>
+                </div>
+                <div class="m-form-input">
+                  <select name="nationality" class="m-form-input-select" >
+                    <option disabled selected>Pasajero a cargo</option>
+                    <option value="">Nombre de Papá</option>
+                    <option value="">Nombre de mamá</option>
+                  </select>
+                  <label>
+                    <img src="assets/Icon-arrow-down.png" alt="start-date" width="15px" height="15px" />
+                  </label>
+                </div>
+              </div>
+              <div class="m-form-group">
+                <div></div>
+                <div></div>
+                <div class="m-contain-button">
+                  <button class="h-button-primary">
+                    <span>Guardar</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <button class="h-button-primary">
+            <span>Agregar infante + 1</span>
+          </button>-->
+          <div style="margin-top: 10px; display: flex; justify-content: end;">
+            <button style="background-color: #707070;">
+              Regresar
+            </button>
+            <a href="#popupPayment" style="text-decoration: none; color: white;">
+              <button style="margin-left: 10px;" onclick="payment('ida1')">
+                Continuar
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div> 
+  
+    <!-- modal de aerolineas disponibles -->    
+    <div id="popup" class="overlay">
+      <div id="popupBody">
+        <div class="p-title">
+          <h2 style="text-align: center;">Aerolíneas disponibles</h2>
+          <a id="cerrar" href="#"><div style="display: flex; justify-content: center; align-items: center; margin-top: -6px;">&times;</div></a>
+        </div>
+        <div class="popupContent" >                
+            <div id="airlines">                   
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- modal de metodos de pago -->    
+    <div id="popupPayment" class="overlay">
+      <div id="popupBody1">
+          <div class="popupContent1">                
+              <div class="container" style="margin-top: 20px;">    
+                  <div class="div60">
+                      <h2 style="text-align: center; font-weight: 500;">Resumen de boletos</h2>
+                      <div id="summary" style="margin-top: 20px;"></div> 
+                      <div style="padding: 20px 0px;">
+                          <p style="color: #707070; font-size: 14px;">Al completar la reserva, estás aceptando las <a style="text-decoration: none; color: #FA8C09;">condiciones generales</a> y la <a style="text-decoration: none; color: #FA8C09;">política de privacidad.</a></p>
+                      </div>
+                  </div>   
+                  <div class="div40">
+                      <h2 style="text-align: center; font-weight: 500;">Elige el método de pago</h2>
+                      <div style="margin-top: 50px;">
+                          <div style="display: flex; flex-direction: column;">
+                              <div style="display: flex; justify-content: space-between; align-items: center;">
+                                  <div class="radio-item">
+                                      <input type="radio" id="card" name="method" value="card" checked onchange="handleRadio(event.target)">
+                                      <label for="card" style="font-weight: 600;">Tarjeta de crédito</label>
+                                  </div>
+                                  <div style="display: flex; flex-wrap: wrap;">
+                                      <img src="img/visa.png" alt="img" style="width: 40px; height: 26px;"/>
+                                      <div style="margin-left: 10px;">
+                                          <img src="img/mastercard.png" alt="img" style="width: 40px; height: 26px;"/>
+                                      </div>
+                                      <div style="margin-left: 10px;">
+                                          <img src="img/american.png" alt="img" style="width: 40px; height: 26px;"/>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div style="margin-top: 5px; display: flex; justify-content: space-between; align-items: center;">
+                                  <div class="radio-item">
+                                      <input type="radio" id="paypal" name="method" value="paypal" onchange="handleRadio(event.target)">
+                                      <label for="paypal" style="font-weight: 600;">Paypal</label>
+                                  </div>
+                                  <div style="display: flex;">
+                                      <img src="img/paypal.png" alt="img" style="width: 60px; height: 26px;"/>
+                                  </div>
+                              </div>
+                              <div style="margin-top: 5px; display: flex; justify-content: space-between; align-items: center;">
+                                  <div class="radio-item" >
+                                      <input type="radio" id="zelle" name="method" value="zelle" onchange="handleRadio(event.target)">
+                                      <label for="zelle" style="font-weight: 600;">Zelle</label>
+                                  </div>
+                                  <div style="display: flex;">
+                                      <img src="img/zelle.png" alt="img" style="width: 40px; height: 26px;"/>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div id="methodCard">
+                          <div style="margin-top: 40px;">
+                              <div style="width: 100%">
+                                  <input class="input" placeholder="Nombre del titular" value="" name="name" id="name"/>
+                              </div>
+                              <div style="width: 100%; margin-top: 15px;">
+                                  <input class="input" placeholder="Número de tarjeta de crédito" type="number" value="" name="cardNumber" id="cardNumber"/>
+                              </div>
+                              <div class="form2">
+                                  <div class="div50 padding">
+                                      <input class="input" placeholder="MM/AA" value="" name="year" id="year"/>
+                                  </div>
+                                  <div class="div50">
+                                      <input class="input" placeholder="Código de seguridad" type="number" value="" name="code" id="code"/>
+                                  </div>
+                              </div>
+                          </div>
+                          <div style="margin-top: 20px;"> 
+                              <div>
+                                  <label class="containerCheck" for="check" style="font-size: 14px; color: #707070;">Acepto los términos y condiciones
+                                  <input type="checkbox" id="check">
+                                  <span class="checkmark"></span>
+                                  </label>
+                              </div>
+                          </div>
+                          <div style="margin-top: 30px;"> 
+                              <div style="display: flex; justify-content: space-between;">
+                                  <h2 style="text-align: center; font-weight: 500;">Total</h2>
+                                  <h2 style="text-align: center; font-weight: 500;">$499</h2>
+                              </div>
+                          </div>
+                          <div style="margin-top: 20px;"> 
+                              <button style="width: 100%;">
+                                <a href="#aprobado" style="text-decoration: none; color: white;">
+                                  <img src="img/padlock.png" alt="img" style="width: 11px; height: 13px;"/>
+                                  Pagar
+                                </a>
+                              </button>
+                          </div>
+                      </div>
+                      <div id="methodZelle" style="display: none;">
+                          <div style="margin-top: 30px;"> 
+                              <div style="display: flex; justify-content: space-between;">
+                                  <h2 style="text-align: center; font-weight: 500;">Total</h2>
+                                  <h2 style="text-align: center; font-weight: 500;">$499</h2>
+                              </div>
+                          </div>
+                          <div style="margin-top: 20px;"> 
+                              <button style="width: 100%;">
+                                <a href="#aprobado" style="text-decoration: none; color: white;">
+                                  <img src="img/padlock.png" alt="img" style="width: 11px; height: 13px;"/>
+                                  Pagar
+                                </a>
+                              </button>
+                          </div>
+                      </div>
+                      <div id="methodPaypal" style="display: none;">
+                        <div style="display: flex; justify-content: center; margin-top: 30px;"> 
+                          <img src="img/paypal.png" alt="img" style="width: 120px; height: 50px;"/>
+                        </div>
+                        <div>
+                          <h2 style="text-align: center; font-weight: 500; margin-top: 10px;">Pagar con Paypal</h2>
+                        </div>
+                        <div>
+                          <h5 style="text-align: center; font-weight: 400; margin-top: 10px;">
+                            Con una cuenta de Paypal, reúne los requisitos para recompenzas y la Protección al Comprador.
+                          </h5>
+                        </div>
+                        <div style="margin-top: 30px;">
+                            <div style="width: 100%">
+                                <input class="input" placeholder="Correo electrónico o número de celular" value="" name="namePaypal" id="namePaypal"/>
+                            </div>
+                            <div style="width: 100%; margin-top: 15px;">
+                                <input type="password" class="input" placeholder="Contraseña" value="" name="password" id="password"/>
+                            </div>
+                        </div>
+                        <div style="margin-top: 30px;"> 
+                            <div style="display: flex; justify-content: space-between;">
+                                <h2 style="text-align: center; font-weight: 500;">Total</h2>
+                                <h2 style="text-align: center; font-weight: 500;">$499</h2>
+                            </div>
+                        </div>
+                        <div style="margin-top: 20px;"> 
+                            <button style="width: 100%;">
+                              <a href="#aprobado" style="text-decoration: none; color: white;">
+                                <!-- <img src="img/padlock.png" alt="img" style="width: 11px; height: 13px;"/> -->
+                                Iniciar sesión
+                              </a>
+                            </button>
+                        </div>
+                      </div>
+                  </div>              
+              </div>
+          </div>
+      </div>
+    </div>  
+    
+    <!--! modal de pago aprobado -->
+    <div class="contain-modal" id="aprobado">
+      <div class="modal pay">
+        <img src="assets/icon-check.png" class="m-pay-icon" /> 
+        <div class="m-pay-title">
+          <h3>Su pago se ha realizado con éxito</h3>
+        </div>
+        <button class="h-button-primary">
+          <a href="#" style="text-decoration: none; color: white;">Volver al inicio</a>
+        </button>
+      </div>
+    </div>
+
+    <!--! modal de pago rechazado -->
+    <div class="contain-modal" id="rechazado">
+      <div class="modal pay">
+        <img src="assets/icon-close-cancel.png" class="m-pay-icon" /> 
+        <div class="m-pay-title">
+          <h3>Su pago se ha sido rechazado</h3>
+        </div>
+        <button class="h-button-primary">
+          <a href="#" style="text-decoration: none; color: white;">Volver al inicio</a>
+        </button>
+      </div>
+    </div>
+   
+  </main>
+
+</body>
+<script src="js/popUp.js"></script>
+<script src="js/payment.js"></script>
+<script src="js/home.js"></script>
+</html>

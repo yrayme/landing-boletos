@@ -1,0 +1,388 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+}
+
+.overlay { 
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.overlay:target{
+    visibility: visible;
+    opacity: 1;
+}
+
+#popupBody{    	
+    width: 55%;
+    padding: 1%;
+    border-radius: 15px;
+    box-shadow: 0px 3px 6px #00000066;
+    background: #FFF;
+    position: relative;
+    margin: 5% auto;
+    /* max-height: 80vh; */
+    /* transition: all 5s ease-in-out; */
+}
+
+#popupBody1{    	
+    width: 60%;
+    border-radius: 15px;
+    box-shadow: 0px 3px 6px #00000066;
+    background: #FFF;
+    position: relative;
+    margin: 5% auto;
+}
+.p-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#cerrar{
+    width: 27px;
+    height: 24px;        
+    background: #FA8C09 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #0000001A;
+    border-radius: 2px;
+    opacity: 1;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    transition: all 200ms;
+}
+
+.popupContent{
+    max-height: 75vh;
+    overflow: auto;
+}
+
+.popupContent1{
+    max-height: 90vh;
+    overflow: auto;
+}
+
+.card{
+    background: #FA8C09 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 15px;
+    opacity: 1;
+    padding: 0px 3px 3px 3px;
+    color: white;
+    margin-top: 30px;
+}
+
+.divTitle{
+    padding: 10px 10px; 
+    display: flex; 
+    flex-direction: row;
+    height: 45px; 
+    align-items: center;
+}
+
+.title{
+    width: 55%;
+}
+
+.title1{
+    display: flex; 
+    justify-content: space-between; 
+    width: 45%; 
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.card1{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 15px;
+    opacity: 1;
+    padding: 20px;
+    color: #1C1B1BCC;
+    display: flex;
+    flex-direction: row;
+}
+
+.div75{
+    width: 75%;
+    font-weight: 500;
+    padding: 0px 20px 0px 0px;
+}
+
+.div25{
+    width: 25%;
+    border-left: 1px solid #707070;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    flex-direction: column;
+}
+
+.divHour{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.airplane{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #E1E1E182 0% 0% no-repeat padding-box;
+    border-radius: 15px;    
+    padding: 5px 10px;
+    width: 140px;
+}
+
+button{
+    background: #FA8C09 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 14px;
+    opacity: 1;
+    color: white;
+    border: none;    
+    width: 131px;
+    height: 35px;
+    cursor: pointer;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    padding-right: 5px;
+}
+
+.div60{
+    width: 60%;
+}
+
+.div40{
+    width: 40%;
+    border-left: 1px solid #707070CC;
+    padding: 0px 20px 20px 20px;
+}
+
+#summary{
+    padding: 20px 20px 0px 20px;
+}
+.radio-item {
+    display: inline-block;
+    position: relative;
+    padding: 0 6px;
+    margin: 10px 0 0;
+}
+
+.radio-item input[type='radio'] {
+    display: none;
+}
+
+.radio-item label {
+    color: #666;
+    font-weight: normal;
+}
+
+.radio-item label:before {
+    content: " ";
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    margin: 0 5px 0 0;
+    width: 15px;
+    height: 15px;
+    border-radius: 11px;
+    border: 2px solid #FA8C09;
+    background-color: transparent;
+}
+
+.radio-item input[type=radio]:checked + label:after {
+    border-radius: 11px;
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    top: 8.5px;
+    left: 10px;
+    content: " ";
+    display: block;
+    background: #FA8C09;
+}
+
+.input{
+    width: 100%;
+    height: 44px;
+    border-radius: 10px;
+    outline: 0;
+    border: 1px solid #707070;
+}
+
+::-webkit-input-placeholder {
+    color: #707070;
+    font-size: 14px;
+    text-align: left;
+    padding-left: 15px;
+    font-weight: 600;
+}
+
+.div50{
+    margin-top: 15px; 
+    width: 50%;
+}
+
+.padding{
+    padding-right: 15px;
+}
+
+/* CHECKBOK */
+input:checked ~ .checkmark {
+    background-color: #FA8C09;
+    border: 1px solid #FA8C09;
+}
+
+/* Contenedor */
+.containerCheck {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    cursor: pointer;
+}
+
+/* escondemos el default checkbox */
+.containerCheck input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* creamos un custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: white;
+    border: 1px solid #707070;
+    border-radius: 3px;
+}
+
+/* Al pasar el mouse encima, lo ponemos gris */
+.containerCheck:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* creamos el marcador (escondido al no seleccionar) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* mostramos el marcador al seleccionar */
+.containerCheck input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* estilo del marcador */
+.containerCheck .checkmark:after {
+    left: 5px;
+    top: 2px;
+    width: 2px;
+    height: 6px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+::-webkit-scrollbar {
+    width: 16px;
+    height: 8px;
+    background-color: white;
+} 
+  
+::-webkit-scrollbar-track {
+    background-color: white;
+    border-radius: 10px;
+}
+  
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #DBDBDB ;
+}
+
+.form2{
+    width: 100%; 
+    display: flex;
+    flex-direction: row;
+}
+
+  
+@media (max-width: 800px) { 
+    #popupBody{    	
+        width: 80%;
+    }
+    
+    .divTitle{
+        height: auto; 
+        flex-direction: column;
+    }
+
+    .title, .div25, .div75, .div50, .div60, .div40{
+        width: 100%;
+    }
+    
+    .title1{
+        width: 100%; 
+        margin-top: 10px;
+    }
+    
+    .card1{
+        flex-direction: column;
+    }
+
+    .div25{
+        border-top: 1px solid #707070;
+        border-left: none;
+    }
+
+    .div40{
+        border-left: none;
+        padding: 0px;
+    }
+    
+    .padding{
+        padding-right: 0px;
+    }
+    
+    .container{
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 8px;
+        background-color: white;
+    } 
+    .form2{
+        flex-direction: column;
+    }
+    
+}
+

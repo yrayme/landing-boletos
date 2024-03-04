@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">	
+    <link href="styles/popup.css" rel="stylesheet" type="text/css" />
+    <title>Document</title>
+</head>
+<body onload="popUp('ida')">
+    <p><a href="#popup">Abrir Popup</a></p>
+
+    <div id="popup" class="overlay">
+        <div id="popupBody">
+            <h2 style="text-align: center;">Aerolíneas disponibles</h2>
+            <a id="cerrar" href="#"><div style="display: flex; justify-content: center; align-items: center; margin-top: -6px;">&times;</div></a>
+            <div class="popupContent">                
+                <div id="airlines">                   
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/popUp.js"></script>
+</html>

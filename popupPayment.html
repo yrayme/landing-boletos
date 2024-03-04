@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/popup.css" rel="stylesheet" type="text/css" />
+    <title>Document</title>
+</head>
+<body onload="payment('ida1')">
+    <p><a href="#popupPayment">Abrir Popup</a></p>
+
+    <div id="popupPayment" class="overlay">
+        <div id="popupBody1">
+            <div class="popupContent1">                
+                <div class="container">    
+                    <div class="div60">
+                        <h2 style="text-align: center; font-weight: 500;">Resumen de boletos</h2>
+                        <div id="summary"></div> 
+                        <div style="padding: 10px 0px;">
+                            <p style="color: #707070; font-size: 14px;">Al completar la reserva, estás aceptando las <a style="text-decoration: none; color: #FA8C09;">condiciones generales</a> y la <a style="text-decoration: none; color: #FA8C09;">política de privacidad.</a></p>
+                        </div>
+                    </div>   
+                    <div class="div40">
+                        <h2 style="text-align: center; font-weight: 500;">Elige el método de pago</h2>
+                        <div style="margin-top: 50px;">
+                            <div style="display: flex; flex-direction: column;">
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div class="radio-item">
+                                        <input type="radio" id="card" name="method" value="card" checked onchange="handleRadio(event.target)">
+                                        <label for="card" style="font-weight: 600;">Tarjeta de crédito</label>
+                                    </div>
+                                    <div style="display: flex;">
+                                        <img src="img/visa.png" alt="img" style="width: 40px; height: 26px;"/>
+                                        <div style="margin-left: 10px;">
+                                            <img src="img/mastercard.png" alt="img" style="width: 40px; height: 26px;"/>
+                                        </div>
+                                        <div style="margin-left: 10px;">
+                                            <img src="img/american.png" alt="img" style="width: 40px; height: 26px;"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="margin-top: 5px; display: flex; justify-content: space-between; align-items: center;">
+                                    <div class="radio-item">
+                                        <input type="radio" id="paypal" name="method" value="paypal" onchange="handleRadio(event.target)">
+                                        <label for="paypal" style="font-weight: 600;">Paypal</label>
+                                    </div>
+                                    <div style="display: flex;">
+                                        <img src="img/paypal.png" alt="img" style="width: 60px; height: 26px;"/>
+                                    </div>
+                                </div>
+                                <div style="margin-top: 5px; display: flex; justify-content: space-between; align-items: center;">
+                                    <div class="radio-item" >
+                                        <input type="radio" id="zelle" name="method" value="zelle" onchange="handleRadio(event.target)">
+                                        <label for="zelle" style="font-weight: 600;">Zelle</label>
+                                    </div>
+                                    <div style="display: flex;">
+                                        <img src="img/zelle.png" alt="img" style="width: 40px; height: 26px;"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="methodPayment">
+                            <div style="margin-top: 40px;">
+                                <div style="width: 100%">
+                                    <input class="input" placeholder="Nombre del titular" value="" name="name" id="name"/>
+                                </div>
+                                <div style="width: 100%; margin-top: 15px;">
+                                    <input class="input" placeholder="Número de tarjeta de crédito" type="number" value="" name="cardNumber" id="cardNumber"/>
+                                </div>
+                                <div style="width: 100%; margin-top: 15px; display: flex;">
+                                    <div class="div50 padding">
+                                        <input class="input" placeholder="MM/AA" value="" name="year" id="year"/>
+                                    </div>
+                                    <div class="div50">
+                                        <input class="input" placeholder="Código de seguridad" type="number" value="" name="code" id="code"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="margin-top: 20px;"> 
+                                <div>
+                                    <label class="containerCheck" for="check" style="font-size: 14px; color: #707070;">Acepto los términos y condiciones
+                                    <input type="checkbox" id="check">
+                                    <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div style="margin-top: 30px;"> 
+                                <div style="display: flex; justify-content: space-between;">
+                                    <h2 style="text-align: center; font-weight: 500;">Total</h2>
+                                    <h2 style="text-align: center; font-weight: 500;">$499</h2>
+                                </div>
+                            </div>
+                            <div style="margin-top: 20px;"> 
+                                <button style="width: 100%;">
+                                    <img src="img/padlock.png" alt="img" style="width: 11px; height: 13px;"/>
+                                    Pagar
+                                </button>
+                            </div>
+                        </div>
+                    </div>              
+                </div>
+            </div>
+        </div>
+    </div>    
+</body>
+<script src="js/payment.js"></script>
+</html>
