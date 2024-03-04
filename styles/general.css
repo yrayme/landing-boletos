@@ -106,6 +106,14 @@
     gap: 8px;
   }
 
+  input[type="date"]{
+    width: 100%;
+    /* background-image: url('/assets/icon-calendar.png'); */
+    background-size: 20px 20px; /* Ajusta el tamaño según tus necesidades */
+    background-position: right center; /* Ajusta la posición de la imagen */
+    background-repeat: no-repeat; /* Evita que se repita la imagen */
+  }
+
   .h-input-date {
     border: 0;
     width: 100px;
